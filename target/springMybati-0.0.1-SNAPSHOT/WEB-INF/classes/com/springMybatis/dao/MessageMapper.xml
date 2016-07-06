@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springMybatis.dao.MessageDao">
+	<resultMap id="Message" type="com.springMybatis.entity.Message">
+		<id property="mesId" column="mes_id" jdbcType="VARCHAR"/>
+		<result property="mesContent" column="mes_content" jdbcType="VARCHAR"/>
+		<result property="mesCreatime" column="mes_creatime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	
+	<insert id="addMes" parameterType="com.springMybatis.entity.Message">
+		insert into message (mes_id,mes_content,mes_creatime)
+		values(#{mesId,jdbcType=VARCHAR},#{mesContent,jdbcType=VARCHAR},#{mesCreatime,jdbcType=TIMESTAMP})
+	</insert>
+	<select id="findAllMes" resultMap="Message">
+		select mes_id,mes_content,mes_creatime from message
+	</select>
+	<select id="getById" parameterType="string"
+		resultMap="Message">
+		select * from message where mes_id=#{id}
+	</select>
+	<update id="updateMes" parameterType="com.springMybatis.entity.Message">
+		update message set mes_content=#{mesContent,jdbcType=VARCHAR}
+		where mes_id=#{mesId}
+	</update>
+	<delete id="deleMes" parameterType="string">
+		delete from message where mes_id=#{id}
+	</delete>
+</mapper> 

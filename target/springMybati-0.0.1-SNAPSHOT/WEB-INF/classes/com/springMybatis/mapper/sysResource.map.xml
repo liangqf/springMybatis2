@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.springMybatis.entity.SysResource">
+ 	<resultMap type="com.springMybatis.entity.SysResource" id="SysResource">
+ 		<id property="id" column="ID" jdbcType="VARCHAR" />
+ 		<result property="path" column="PATH" jdbcType="VARCHAR" />
+ 		<result property="name" column="NAME" jdbcType="VARCHAR" />
+ 		<result property="alias" column="ALIAS" jdbcType="VARCHAR" />
+ 	</resultMap>
+ 	
+ 	<insert id="add" parameterType="com.springMybatis.entity.SysResource" >
+ 		insert into sys_file (id,path,name,alias)
+ 		values (#{id,jdbcType=VARCHAR},#{path,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{alias,jdbcType=VARCHAR})
+ 	</insert>
+ 	
+ 	<select id="getAll" resultMap="SysResource">
+ 		select id,path,name,alias from sys_resource
+ 	</select>
+ 	
+ </mapper>

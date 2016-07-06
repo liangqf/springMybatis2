@@ -1,0 +1,6 @@
+com.springMybatis.controller
+com.springMybatis.dao
+com.springMybatis.entity
+com.springMybatis.filters
+com.springMybatis.service
+com.springMybatis.test

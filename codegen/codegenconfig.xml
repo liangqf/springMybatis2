@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="codegen.xsd">
+	<variables>
+		<variable name="developer" value="lqf" />
+		<variable name="company" value="广州宏天软件有限公司" />
+	</variables>
+	
+	<templates>
+		<template id="model" path="model.ftl"/>
+		<template path="dao.ftl" id="dao"/>
+		<template path="mapper.ftl" id="mapper"/>
+		<template path="service.ftl" id="service"/>
+		<template path="controller.ftl" id="controller"/>
+		
+		
+	</templates>
+	
+	<files baseDir="E:\workspace\lqfproject" >
+		<file refTemplate="model" filename="{class}.java" dir="src\main\java\com\hotent\{system}\model\{package}"  sub="true" override="true"/>
+		<file filename="{class}Mapper.xml" dir="src\main\resources\com\hotent\{system}\mapper" refTemplate="mapper" sub="true" override="true"/>
+		
+		<file refTemplate="service" filename="{class}Service.java" dir="src\main\java\com\hotent\{system}\service\{package}"  override="true"/>
+		<file refTemplate="controller" filename="{class}Controller.java" dir="src\main\java\com\hotent\{system}\controller\{package}"  override="true"/>
+		
+		 
+		<file filename="{class}Dao.java" dir="src\main\java\com\hotent\{system}\dao\{package}" refTemplate="dao" override="true" />
+		 
+	</files>
+	
+	<table tableName="USERINFO" >
+		<variable name="class" value="UserInfo" />
+		<variable name="package" value="userinfo" />
+	</table>
+	
+	
+</config>
